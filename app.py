@@ -30,8 +30,9 @@ st.set_page_config(
 # ============================================================
 
 BASE_DIR = Path(__file__).resolve().parent
-MODEL_PATH = BASE_DIR / "phishing_ann_model.keras"
-SCALER_PATH = BASE_DIR / "scaler.pkl"
+
+MODEL_PATH = BASE_DIR / "models" / "phishing_ann_model.keras"
+SCALER_PATH = BASE_DIR / "models" / "scaler.pkl"
 FEATURE_PATH = BASE_DIR / "feature_names.json"
 # ============================================================
 # LOAD MODEL
@@ -39,10 +40,8 @@ FEATURE_PATH = BASE_DIR / "feature_names.json"
 
 @st.cache_resource
 def load_resources():
-
-    model = load_model(MODEL_PATH)
-
-    scaler = joblib.load(SCALER_PATH)
+    model = load_model(str(MODEL_PATH))
+    scaler = joblib.load(str(SCALER_PATH))
 
     with open(FEATURE_PATH, "r") as file:
         feature_names = json.load(file)
