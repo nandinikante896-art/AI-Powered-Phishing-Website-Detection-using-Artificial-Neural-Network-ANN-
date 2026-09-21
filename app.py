@@ -30,11 +30,9 @@ st.set_page_config(
 # ============================================================
 
 BASE_DIR = Path(__file__).resolve().parent
-
-MODEL_PATH = BASE_DIR / "phishing_ann_model.keras"
-SCALER_PATH = BASE_DIR / "phishing_scaler.pkl"
+MODEL_PATH = BASE_DIR / "models" / "phishing_ann_model.keras"
+SCALER_PATH = BASE_DIR / "models" / "scaler.pkl"
 FEATURE_PATH = BASE_DIR / "feature_names.json"
-
 
 # ============================================================
 # LOAD MODEL
